@@ -60,8 +60,29 @@ h1{
     justify-content: center;
     list-style: none;
     gap: 3rem;
+    align-items: center;
 }
 /* ajustes */
+
+.menu-toggle{
+    display: none;
+}
+
+.menu-button{
+    display: none;
+    color: var(--cor-fundo);
+    font-size: 1.8rem;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    transition: background 0.2s ease;
+}
+
+.menu-button:hover{
+    background: rgba(255, 255, 255, 0.08);
+}
 
 .menu-link{
     text-decoration: none;
@@ -169,7 +190,44 @@ section:target .sobre-caixa, section:target .graduacao-caixa, section:target .ce
 }
 
 @media (max-width: 800px){
+    .navegacao{
+        padding: 0.8rem 1rem;
+    }
+
+    .menu-button{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menu{
+        gap: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        background: rgba(82, 44, 3, 0.95);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .menu li{
+        width: 100%;
+    }
+
+    .menu-link{
+        display: block;
+        width: 100%;
+        padding: 1rem 1.25rem;
+    }
+
+    .menu-toggle:checked + .menu-button + .menu{
+        max-height: 500px;
+    }
+
     .fotoperfil{ width: 220px; height: 220px; }
-    .menu{ gap: 1rem; }
     .sobre-paragrafo, .graduacao-paragrafo, .certificados-paragrafo, .objetivos-paragrafo, .contatos-paragrafo{ font-size: 1.1rem; max-width: 100%; padding: 0 1rem; }
 }
